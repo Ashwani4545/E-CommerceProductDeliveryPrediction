@@ -1,4 +1,4 @@
-# FINAL PROJECT DOCUMENTATION — E-Commerce Product Delivery Prediction
+# E-Commerce Product Delivery Prediction
 
 ## 1. Overview
 This project provides a complete, production-ready pipeline for predicting e-commerce product delivery performance. It includes:
