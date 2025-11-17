@@ -1,0 +1,5 @@
+OrderID,CustomerName,Product,Quantity,Price,delivery_days
+1001,Alice,Widget A,1.0,10.0,2
+1002,Bob,Widget B,2.0,20.0,5
+1003,,Widget C,,30.0,3
+1003,Bob,Widget B,2.0,20.0,5
