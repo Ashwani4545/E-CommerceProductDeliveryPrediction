@@ -88,17 +88,6 @@ python scripts/export_to_parquet.py --input data/processed/processed_data.csv --
 ## 6. Summary
 This single README provides full documentation for your refined, production-ready project.
 
-
-## 📦 E-Commerce Product Delivery Prediction – Dataset & Insights Add-on
-
-This extended section provides deeper insights into the original dataset used for model training and evaluation.
-
----
-
-# 📦 E-Commerce Product Delivery Prediction (Original Dataset Overview)
-
-This project also includes an analysis of a structured e-commerce logistics dataset containing **10,999 records** and **12 features** related to warehouse operations, customer behavior, and product shipment details.
-
 ## 🚀 Technologies Used
 - Python, Pandas, Seaborn, Matplotlib  
 - Scikit-learn (Random Forest, Decision Tree, Logistic Regression, KNN)  
