@@ -130,13 +130,7 @@ python scripts/export_to_parquet.py --input data/processed/processed_data.csv --
 
 ---
 
-## 6. Summary
-This single README provides full documentation for your refined, production-ready project.
----
-
-## 📌 Combined Conclusion
+## 📌 Conclusion
 
 Product characteristics (like weight and cost), customer behavior (inquiries and prior purchases), and shipping method significantly influence delivery timing.  
 Among machine learning models, **Decision Trees** provided the most reliable accuracy for this dataset and business case.
-
----
