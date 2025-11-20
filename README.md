@@ -1,136 +1,166 @@
-# E-Commerce Product Delivery Prediction
+📦 E-Commerce Product Delivery Prediction
+⭐ 1. Overview
 
-## 1. Overview
-This project provides a complete, production-ready pipeline for predicting e-commerce product delivery performance. It includes:
+This project provides a complete, production-ready pipeline for predicting whether an e-commerce product will be delivered on time.
+It includes automated ETL, machine learning pipelines, dashboard-ready data outputs, CI support, and project documentation.
 
-## 🚀 Technologies Used
-- Python, Pandas, Seaborn, Matplotlib  
-- Scikit-learn (Random Forest, Decision Tree, Logistic Regression, KNN)  
-- Jupyter Notebook  
+🚀 2. Technologies Used
 
----
+Python (Pandas, NumPy, Seaborn, Matplotlib)
 
-## 📘 Data Dictionary
+Scikit-learn:
 
-| Variable             | Description                                             |
-|----------------------|---------------------------------------------------------|
-| ID                   | Unique Customer ID                                      |
-| Warehouse_block      | Warehouse location (A, B, C, D, E)                      |
-| Mode_of_Shipment     | Shipment method (Ship, Flight, Road)                    |
-| Customer_care_calls  | Number of customer calls regarding shipment             |
-| Customer_rating      | Customer rating (1 - Lowest, 5 - Highest)               |
-| Cost_of_the_Product  | Cost of product (USD)                                   |
-| Prior_purchases      | Number of previous orders by customer                   |
-| Product_importance   | Category: low, medium, high                             |
-| Gender               | Male / Female                                           |
-| Discount_offered     | Discount percentage                                     |
-| Weight_in_gms        | Weight of product in grams                              |
-| Reached.on.Time_Y.N  | Target variable: 1 = Late, 0 = On time                  |
+Random Forest
 
----
+Decision Tree
 
-## 📊 Key Insights From Exploratory Analysis
+Logistic Regression
 
-- **Product weight and cost** are major contributors to delivery delays.  
-- More **customer care calls = higher chance of late delivery**.  
-- **Loyal customers** (higher prior purchases) tend to receive faster deliveries.  
-- Discounts below **10%** correlate with more late deliveries.  
+KNN
 
----
+Jupyter Notebook
 
-## 🧠 ML Model Performance Overview
+Parquet conversion for BI tools
 
-| Model                | Accuracy |
-|----------------------|----------|
-| Decision Tree        | 69%      |
-| Random Forest        | 68%      |
-| Logistic Regression  | 63%      |
-| KNN                  | 65%      |
+GitHub Actions (CI)
 
-The **Decision Tree Classifier** performed the best with **69% accuracy**.
-- **ETL Pipeline**: Extract, transform, and load raw CSV files  
-- **Machine Learning Pipeline**: Model training, hyperparameter tuning, predictions  
-- **Dashboard Integration**: Power BI & Tableau-ready artifacts  
-- **One-Click Execution**: Automated pipeline that performs the entire workflow end-to-end  
-- **CI/CD Support**: GitHub Actions workflow  
-- **Documentation & Release Notes**  
+📘 3. Data Dictionary
+Variable	Description
+ID	Unique Customer ID
+Warehouse_block	Warehouse location (A, B, C, D, E)
+Mode_of_Shipment	Shipment method (Ship, Flight, Road)
+Customer_care_calls	Number of calls made by customer regarding shipment
+Customer_rating	Rating (1 = lowest, 5 = highest)
+Cost_of_the_Product	Product cost in USD
+Prior_purchases	Number of prior purchases by customer
+Product_importance	low / medium / high
+Gender	Male / Female
+Discount_offered	Discount percentage
+Weight_in_gms	Weight of product in grams
+Reached.on.Time_Y.N	Target: 1 = Late, 0 = On Time
+📊 4. Key Insights From Exploratory Analysis
 
----
+Product weight and cost strongly influence delivery time.
 
-## 2. Features Included
+More customer care calls correlate with delayed delivery.
 
-### ETL Pipeline (etl/)
-- `extract.py`
-- `transform.py`
-- `load.py`
-- `pipeline.py`
+Loyal customers (high prior purchases) have better on-time delivery rates.
 
-### Machine Learning Pipeline (ml/)
-- `advanced_train.py`
-- `predict.py`
+Discounts below 10% are linked to more late deliveries.
 
-### Dashboard Helpers (scripts/)
-- `export_to_parquet.py`
-- `create_hyper.py`
+Heavier products (2500–3500g) and low-cost items (< $250) tend to face more delays.
 
-### One-click Automation
-- `run_all.py`
-- `run_all.sh`
+🧠 5. ML Model Performance Overview
+Model	Accuracy
+Decision Tree	69%
+Random Forest	68%
+Logistic Regression	63%
+KNN	65%
 
-### CI/CD
-- `.github/workflows/ci.yml`
+📌 The Decision Tree Classifier achieved the best accuracy.
 
----
+⚙️ 6. Features Included
+ETL Pipeline (etl/)
 
-## 3. Quickstart Guide
+extract.py — Fetch raw CSV files
 
-### Step 1 — Setup
-```
+transform.py — Clean, normalize, handle missing data
+
+load.py — Save processed dataset
+
+pipeline.py — Execute full ETL
+
+Machine Learning Pipeline (ml/)
+
+advanced_train.py — Feature engineering + RandomizedSearchCV
+
+predict.py — Predict outcomes using trained model
+
+Dashboard Helpers (scripts/)
+
+export_to_parquet.py
+
+create_hyper.py (Tableau helper placeholder)
+
+One-click Automation
+
+run_all.py
+
+run_all.sh
+
+CI/CD (GitHub Actions)
+
+.github/workflows/ci.yml — Runs tests, ETL, verification
+
+⚡ 7. Quickstart Guide
+Step 1 — Setup Environment
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
 
-### Step 2 — Run entire pipeline
-```
+Step 2 — Run Entire Pipeline
 python run_all.py
-```
 
-### Output Files
-- Processed CSV → `data/processed/processed_data.csv`
-- Model → `models/advanced_model.pkl`
-- Metadata → `models/metadata.json`
-- Predictions → `predictions.csv`
-- Parquet → `data/processed/processed_data.parquet`
-- Deliverable ZIP → `E_commerceProductDeliveryPrediction-deliverable.zip`
+Generated Outputs
+File	Location
+Processed CSV	data/processed/processed_data.csv
+Model	models/advanced_model.pkl
+Metadata	models/metadata.json
+Predictions	predictions.csv
+BI Parquet File	data/processed/processed_data.parquet
+Deliverable ZIP	E_commerceProductDeliveryPrediction-deliverable.zip
+📊 8. Dashboard Integration (Power BI / Tableau)
 
----
+Convert CSV → Parquet:
 
-## 4. Dashboard Integration (Power BI / Tableau)
-
-Convert processed CSV to Parquet:
-```
 python scripts/export_to_parquet.py --input data/processed/processed_data.csv --output data/processed/processed_data.parquet
-```
 
----
 
-## 5. Release Notes — v1.0 Final
+Import into:
 
-### What's New
-- Complete ETL + ML Pipeline  
-- Full automation  
-- Dashboard-ready outputs  
-- CI workflow  
-- Documentation  
+Power BI → Get Data → Parquet
 
-### Known Limitations
-- Auto target detection may need manual override  
-- Tableau `.hyper` export is placeholder  
+Tableau → File → Open → Parquet/CSV
 
----
+📝 9. Release Notes — v1.0 Final
+✅ What’s New
 
-## 📌 Conclusion
+Complete ETL + ML pipeline
 
-Product characteristics (like weight and cost), customer behavior (inquiries and prior purchases), and shipping method significantly influence delivery timing.  
-Among machine learning models, **Decision Trees** provided the most reliable accuracy for this dataset and business case.
+Automated workflow
+
+BI-ready outputs
+
+CI workflow
+
+Full documentation
+
+Model performance reporting
+
+⚠️ Known Limitations
+
+Auto target detection may need manual override
+
+.hyper export is implemented as a placeholder
+
+📌 10. Conclusion
+
+This project delivers a production-ready solution for analyzing and predicting delivery performance in e-commerce logistics.
+
+Key takeaways:
+
+Product attributes, customer behavior, and shipping method significantly impact delivery timing.
+
+Decision Tree models provide high interpretability and competitive performance.
+
+Automated pipelines streamline ETL, model training, and deployment preparation.
+
+This makes the project suitable for:
+
+Data science portfolios
+
+Machine learning deployment practice
+
+Business intelligence integration
+
+Academic submissions
